@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --gap:15px;
+    --padding:15px;
+    --margin:15px;
+    --border-radius: 10px;
+}
+body{
+    border: 2px solid brown;
+    padding: 10px;
+    background-color: #eaeceb;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.logo{
+    width: 50px;
+    height: 100px;
+}
+
+.navbar{
+    background-color: rgb(41, 129, 70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.navbar ul{
+    display: flex;
+    gap: var(--gap);
+    padding: var(--padding) 0 var(--padding) 0;
+    list-style: none;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+
+}
+.mainContentContainer{
+    display: grid;
+    grid-template-areas:
+    "promotion"
+    "blog";
+    width: 100%;
+}
+.promotionBannerSection{
+    grid-area: promotion;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr ;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: var(--padding) 0 var(--padding) 0 ;
+    gap: var(--gap);
+    width: 100%;
+    height: 80vh;
+}
+.leftPromotionBanner,.centerPromotionBanner{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.promotionImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.promotionImg:hover , .blogImg:hover{
+    transform: scale(1.04);
+    transition: transform 0.2s linear;
+}
+.rightPromotionBanner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+    text-align: center;
+        height: 100%;
+
+}
+.promotionBannerText{
+    line-height: 25px;
+    word-spacing: 2px;
+    font-size: 1.2rem;
+}
+.promotionBannerButton{
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    background-color: green;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+.promotionBannerButton:hover{
+    background-color: white;
+    color: green;
+    transition:background-color 0.2s linear , color 0.2s linear;
+    cursor: pointer;
+}
+.blogSection{
+    grid-area:blog ;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 0 auto;
+    gap: calc(var(--gap) * 2);
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+.blogSection h3{
+    color: rgb(62, 167, 62);
+        padding: 0 10px 5px 10px;
+
+}
+.blogSection p{
+    color: rgb(45, 45, 45);
+        padding: 0 10px 15px 10px;
+
+}
+.blogCard{
+    background-color: rgb(243, 249, 255);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: -2px 0px 6px 4px #1c1c1c17;
+}
+.blogCard:hover{
+transition: transform .2s linear;
+transform: scale(1.01);
+}
+.blogImg{
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    object-position:center;
+    
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.219);
+}
+.footerLogo{
+    padding: var(--padding);
+    width: 10%;
+    height: 150px;
+}
+.copyright{
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .promotionBannerSection {
+        display: grid;
+        grid-template-areas: 
+        "one two"
+        "three three";
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+    }
+    .leftPromotionBanner{
+        grid-area: one;
+    }
+    .centerPromotionBanner{
+        grid-area: two;
+    }
+
+    .rightPromotionBanner {
+        grid-area: three;
+        padding: 15px;
+    }
+}
